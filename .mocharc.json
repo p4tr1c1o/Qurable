@@ -1,0 +1,14 @@
+{
+	"extension": [
+		"ts"
+	],
+	"spec": [
+		"*/*"
+	],
+	"recursive": true,
+	"require": [
+		"ts-node/register"
+	],
+	"timeout": 20000,
+	"exit": true
+}
