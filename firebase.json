@@ -1,0 +1,14 @@
+{
+	"firestore": {
+		"rules": "./ejercicio-5/firebase/firestore.rules",
+		"indexes": "./ejercicio-5/firebase/firestore.indexes.json"
+	},
+	"hosting": {
+		"source": "dist",
+		"ignore": [
+			"firebase.json",
+			"**/.*",
+			"**/node_modules/**"
+		]
+	}
+}
