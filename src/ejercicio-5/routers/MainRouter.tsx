@@ -1,15 +1,17 @@
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
-// import MainLayout from "../components/layout/MainLayout"
-// import Layout from "../components/layout/Layout"
-import Events from "../pages/events/+page"
+import EventList from "../pages/event-list/+page"
 import Layout from "../components/layout/Layout"
+import EventForm from "../pages/event-form/+page"
+import EventDetail from "../pages/event-detail/+page"
 
 
 const router = createBrowserRouter([
 	{
 		path: "/", Component: Layout, children: [
-			{ index: true, Component: () => <Events /> },
+			{ index: true, Component: () => <EventList /> },
+			{ path: "events/form", Component: () => <EventForm /> },
+			{ path: "events/:id", Component: () => <EventDetail /> },
 		]
 	}
 ])
