@@ -1,10 +1,10 @@
 export function scheduleMeetings(meetings: number[][]) {
 	// ordeno las reuniones por su tiempo maximo
-	meetings.sort((a, b) => a[1] - b[1]);
+	meetings.sort((a, b) => a[1] - b[1])
 
 	// inicializo los valores para comparar
-	const validMeetings = [meetings[0]];
-	let lastMeetingEndTime = meetings[0][1];
+	const validMeetings = [meetings[0]]
+	let lastMeetingEndTime = meetings[0][1]
 
 	// recorro las reuniones
 	meetings.forEach(meet => {
@@ -18,5 +18,5 @@ export function scheduleMeetings(meetings: number[][]) {
 		}
 	})
 
-	return validMeetings;
+	return validMeetings
 }
