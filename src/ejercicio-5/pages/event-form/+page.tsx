@@ -64,8 +64,8 @@ function EventForm() {
 							>
 								La fecha es obligatoria
 							</Typography>}
-
 					</Stack>
+
 					<TextField
 						fullWidth
 						id="nombre"
@@ -94,10 +94,7 @@ function EventForm() {
 
 					<Stack direction="row" justifyContent="flex-end" marginTop={2} spacing={2}>
 						<Button onClick={handleCancel}> Cancelar </Button>
-						<Button
-							variant="contained"
-							onClick={formik.submitForm}
-						>
+						<Button variant="contained" onClick={formik.submitForm}>
 							Guardar
 						</Button>
 					</Stack>

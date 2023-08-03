@@ -7,6 +7,7 @@
 			"DOM",
 			"DOM.Iterable"
 		],
+		"rootDir": "./",
 		"module": "ESNext",
 		"skipLibCheck": true,
 		/* Bundler mode */
@@ -22,6 +23,7 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": false,
+		"strictPropertyInitialization": false,
 		"types": [
 			"vite/client"
 		]

@@ -15,17 +15,24 @@ export default function Layout() {
 	}
 
 	return (
-		<Box sx={{ display: 'flex', minHeight: '100vh' }}>
+		<>
+			<Header onDrawerToggle={toggleDrawer} />
+			<Box sx={{ display: 'flex', minHeight: '100vh', overflowX: "scroll" }}>
 
-			<DrawerWraper mobileOpen={mobileOpen} toggleDrawer={toggleDrawer} />
 
-			<Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-				<Header onDrawerToggle={toggleDrawer} />
-				<Box component="main" sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1' }}>
-					<Outlet />
+				<Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+					<Box component="main" sx={{
+						flex: 1,
+						paddingY: 6,
+						paddingX: { xs: 1, sm: 4 },
+						bgcolor: '#eaeff1'
+					}}>
+						<DrawerWraper mobileOpen={mobileOpen} toggleDrawer={toggleDrawer} />
+						<Outlet />
+					</Box>
+					<Footer />
 				</Box>
-				<Footer />
 			</Box>
-		</Box>
+		</>
 	)
 }
