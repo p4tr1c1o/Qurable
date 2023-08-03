@@ -93,8 +93,8 @@ function EventForm() {
 					/>
 
 					<Stack direction="row" justifyContent="flex-end" marginTop={2} spacing={2}>
-						<Button onClick={handleCancel}> Cancelar </Button>
-						<Button variant="contained" onClick={formik.submitForm}>
+						<Button color="secondary" onClick={handleCancel}> Cancelar </Button>
+						<Button color="secondary" variant="contained" onClick={formik.submitForm}>
 							Guardar
 						</Button>
 					</Stack>

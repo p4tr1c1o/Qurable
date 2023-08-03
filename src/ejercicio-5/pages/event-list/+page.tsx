@@ -22,14 +22,14 @@ function EventList() {
 
 	const columns: GridColDef[] = [
 		{ field: "id", headerName: "Id", width: 100 },
-		{ field: "nombre", headerName: "Nombre" },
-		{ field: "descripcion", headerName: "Descripcion" },
-		{ field: "fecha", headerName: "Fecha" },
-		{ field: "actions", headerName: " ", renderCell: ActionButtonsCell },
+		{ field: "nombre", headerName: "Nombre", flex: 1, minWidth: 140 },
+		{ field: "descripcion", headerName: "Descripcion", flex: 1, minWidth: 160 },
+		{ field: "fecha", headerName: "Fecha", width: 130 },
+		{ field: "actions", headerName: " ", width: 100, renderCell: ActionButtonsCell },
 	]
 
 	return (
-		<Paper sx={{ maxWidth: 936, margin: 'auto', overflow: 'hidden' }}>
+		<Paper sx={{ maxWidth: { xs: 320, sm: 936 }, minHeight: 160, margin: 'auto', overflowX: "hidden" }}>
 			<SearchToolbar />
 
 			<DataGrid

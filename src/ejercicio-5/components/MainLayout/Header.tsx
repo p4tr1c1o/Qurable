@@ -18,10 +18,10 @@ export default function Header(props: HeaderProps) {
 
 	return (
 		<React.Fragment>
-			<AppBar color="primary" position="sticky" elevation={0}>
+			<AppBar color="transparent" position="sticky" elevation={0}>
 				<Toolbar>
 					<Grid container spacing={1} alignItems="center">
-						<Grid sx={{ display: { sm: 'none', xs: 'block' } }} item>
+						<Grid sx={{ display: { md: 'none', sm: 'block' } }} item>
 							<IconButton
 								color="inherit"
 								aria-label="open drawer"
@@ -49,7 +49,7 @@ export default function Header(props: HeaderProps) {
 			</AppBar>
 			<AppBar
 				component="div"
-				color="primary"
+				color="transparent"
 				position="static"
 				elevation={0}
 				sx={{ zIndex: 0, paddingBottom: 6 }}

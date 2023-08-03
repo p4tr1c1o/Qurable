@@ -17,10 +17,10 @@ function SearchToolbar() {
 			elevation={0}
 			sx={{ borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }}
 		>
-			<Toolbar>
+			<Toolbar disableGutters>
 				<Grid container spacing={2} alignItems="center" justifyContent="flex-end">
 					<Grid item>
-						<SearchIcon color="inherit" sx={{ display: 'block' }} />
+						<SearchIcon color="inherit" sx={{ display: 'block', marginLeft: 1 }} />
 					</Grid>
 					<Grid item xs>
 						<TextField
@@ -34,7 +34,7 @@ function SearchToolbar() {
 						/>
 					</Grid>
 					<Grid item>
-						<Button variant="contained" sx={{ mr: 1 }} onClick={handleAddEventClick}>
+						<Button color="secondary" variant="contained" sx={{ mr: 1 }} onClick={handleAddEventClick}>
 							Add event
 						</Button>
 						{/* <Tooltip title="Reload">

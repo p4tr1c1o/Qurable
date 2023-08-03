@@ -15,12 +15,12 @@ function ActionButtonsCell(params: GridRenderCellParams) {
 
 	return (
 		<Button
-			color="primary"
+			color="secondary"
 			size="small"
 			style={{ marginLeft: 16 }}
 			onClick={() => handleEditarClick(params.row)}
 		>
-			Edit
+			Detalles
 		</Button>
 	)
 }

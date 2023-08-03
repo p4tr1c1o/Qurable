@@ -1,16 +1,16 @@
 import { createTheme } from '@mui/material'
-import { red, blueGrey, orange } from '@mui/material/colors'
+import { blue, teal, red, blueGrey, orange, indigo, pink, deepOrange, deepPurple } from '@mui/material/colors'
 
 
 let theme = createTheme({
 	palette: {
-		primary: {
-			light: '#63ccff',
-			main: '#009be5',
-			dark: '#006db3',
-		},
+		primary: blueGrey,
+		secondary: { main: teal[500] }
 	},
 	typography: {
+		h1: {
+			color: "#101f33"
+		},
 		h5: {
 			fontWeight: 500,
 			fontSize: 26,
@@ -50,6 +50,7 @@ theme = {
 					textTransform: 'none',
 				},
 				contained: {
+					color: "white",
 					boxShadow: 'none',
 					'&:active': {
 						boxShadow: 'none',
@@ -109,7 +110,7 @@ theme = {
 			styleOverrides: {
 				root: {
 					'&.Mui-selected': {
-						color: '#4fc3f7',
+						color: theme.palette.secondary.main,
 					},
 				},
 			},

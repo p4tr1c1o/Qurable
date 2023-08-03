@@ -60,7 +60,7 @@ export default function Navigator(props: DrawerProps) {
 	return (
 		<Drawer variant="permanent" {...other}>
 			<List disablePadding>
-				<ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff' }}>
+				<ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: "white" }}>
 					Qurable
 				</ListItem>
 				<ListItem sx={{ ...item, ...itemCategory }}>
@@ -72,7 +72,7 @@ export default function Navigator(props: DrawerProps) {
 				{categories.map(({ id, children }) => (
 					<Box key={id} sx={{ bgcolor: '#101F33' }}>
 						<ListItem sx={{ py: 2, px: 3 }}>
-							<ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
+							<ListItemText sx={{ color: "white" }}>{id}</ListItemText>
 						</ListItem>
 						{children.map(({ id: childId, icon, active }) => (
 							<ListItem disablePadding key={childId}>

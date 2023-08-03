@@ -1,9 +1,9 @@
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import EventList from "../pages/event-list/+page"
-import Layout from "../components/layout/Layout"
 import EventForm from "../pages/event-form/+page"
 import EventDetail from "../pages/event-detail/+page"
+import Layout from "../components/MainLayout/Layout"
 
 
 const router = createBrowserRouter([
