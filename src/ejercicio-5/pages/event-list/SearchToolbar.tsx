@@ -34,7 +34,7 @@ function SearchToolbar() {
 						/>
 					</Grid>
 					<Grid item>
-						<Button color="secondary" variant="contained" sx={{ mr: 1 }} onClick={handleAddEventClick}>
+						<Button color="secondary" variant="contained" sx={{ mr: 1, marginY: 1.5 }} onClick={handleAddEventClick}>
 							Add event
 						</Button>
 						{/* <Tooltip title="Reload">

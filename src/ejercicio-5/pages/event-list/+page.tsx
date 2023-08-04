@@ -25,7 +25,7 @@ function EventList() {
 		{ field: "nombre", headerName: "Nombre", flex: 1, minWidth: 140 },
 		{ field: "descripcion", headerName: "Descripcion", flex: 1, minWidth: 160 },
 		{ field: "fecha", headerName: "Fecha", width: 130 },
-		{ field: "actions", headerName: " ", width: 100, renderCell: ActionButtonsCell },
+		{ field: "actions", headerName: " ", width: 100, renderCell: (params) => ActionButtonsCell(params) },
 	]
 
 	return (

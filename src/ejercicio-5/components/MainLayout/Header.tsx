@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useContext } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Avatar from '@mui/material/Avatar'
 import Grid from '@mui/material/Grid'
@@ -8,12 +8,26 @@ import NotificationsIcon from '@mui/icons-material/Notifications'
 import Toolbar from '@mui/material/Toolbar'
 import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
+import { AuthContext } from "../../context/AuthContext"
+import AccountMenu from "./AccountMenu"
+import * as React from "react"
 
 interface HeaderProps {
 	onDrawerToggle: () => void;
 }
 
 export default function Header(props: HeaderProps) {
+	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>()
+	const openAccountMenu = Boolean(anchorEl)
+	const usuarioActual = useContext(AuthContext)
+
+	function handleAccountMenuClick(event: React.MouseEvent<HTMLElement>) {
+		setAnchorEl(event.currentTarget)
+	}
+
+	function handleCloseAccountMenu() {
+		setAnchorEl(null)
+	}
 	const { onDrawerToggle } = props
 
 	return (
@@ -40,9 +54,10 @@ export default function Header(props: HeaderProps) {
 							</Tooltip>
 						</Grid>
 						<Grid item>
-							<IconButton color="inherit" sx={{ p: 0.5 }}>
-								<Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
+							<IconButton color="inherit" sx={{ p: 0.5 }} onClick={handleAccountMenuClick} >
+								<Avatar>{usuarioActual?.email?.charAt(0)}</Avatar>
 							</IconButton>
+							<AccountMenu open={openAccountMenu} anchorEl={anchorEl} handleClose={handleCloseAccountMenu} />
 						</Grid>
 					</Grid>
 				</Toolbar>
@@ -52,7 +67,12 @@ export default function Header(props: HeaderProps) {
 				color="transparent"
 				position="static"
 				elevation={0}
-				sx={{ zIndex: 0, paddingBottom: 6 }}
+				sx={{
+					zIndex: 0,
+					paddingBottom: 2,
+					borderBottom: 1,
+					borderBottomColor: "#08162745"
+				}}
 			>
 				<Toolbar>
 					<Grid container alignItems="center" spacing={1}>
@@ -65,6 +85,6 @@ export default function Header(props: HeaderProps) {
 				</Toolbar>
 			</AppBar>
 
-		</React.Fragment>
+		</React.Fragment >
 	)
 }
