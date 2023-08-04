@@ -17,12 +17,12 @@ function EventList() {
 		id: evento?.docId,
 		nombre: evento?.nombre,
 		descripcion: evento?.descripcion,
-		fecha: evento?.fecha
+		fecha: evento?.fecha.toLocaleDateString()
 	})) ?? [] as GridRowModel[]
 
 	const columns: GridColDef[] = [
 		{ field: "id", headerName: "Id", width: 100 },
-		{ field: "nombre", headerName: "Nombre", flex: 1, minWidth: 140 },
+		{ field: "nombre", headerName: "Nombre", width: 140 },
 		{ field: "descripcion", headerName: "Descripcion", flex: 1, minWidth: 160 },
 		{ field: "fecha", headerName: "Fecha", width: 130 },
 		{ field: "actions", headerName: " ", width: 100, renderCell: (params) => ActionButtonsCell(params) },

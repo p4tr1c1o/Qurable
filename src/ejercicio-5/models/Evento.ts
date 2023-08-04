@@ -1,4 +1,4 @@
-import { DocumentData, QueryDocumentSnapshot, SnapshotOptions } from "firebase/firestore"
+import { DocumentData, QueryDocumentSnapshot, SnapshotOptions, Timestamp } from "firebase/firestore"
 
 export default class Evento {
 	docId?: string
@@ -13,7 +13,10 @@ export default class Evento {
 
 export const eventoConverter = {
 	toFirestore(evento: Evento): DocumentData {
-		return { ...evento }
+		return {
+			...evento,
+			fecha: new Date(evento.fecha)
+		}
 	},
 	fromFirestore(
 		snapshot: QueryDocumentSnapshot,
@@ -21,8 +24,9 @@ export const eventoConverter = {
 	): Evento {
 		const data = snapshot.data(options)!
 		return new Evento({
-			docId: snapshot.id,
 			...data,
+			docId: snapshot.id,
+			fecha: new Date(data?.fecha)
 		})
 	}
 }

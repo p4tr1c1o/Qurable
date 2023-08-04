@@ -6,6 +6,7 @@ import Link from "@mui/material/Link"
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import { useFormik } from "formik"
 import theme from "../../styles/Theme"
+import AuthService from "../../services/AuthService"
 
 export default function ForgotPassword() {
 	const [mensaje, setMensaje] = useState("")
@@ -24,12 +25,10 @@ export default function ForgotPassword() {
 	})
 
 	async function handleSubmit(values) {
-		console.log(values)
-
-		// const result = await AuthService.blanquearContraseña(values.email)
-		// if (result?.esError) {
-		// 	return console.log(result.errorCode)
-		// }
+		const result = await AuthService.blanquearContraseña(values.email)
+		if (result?.esError) {
+			return console.log(result.errorCode)
+		}
 		setMensaje("Se ha enviado un correo para restablecer la contraseña")
 
 	}
