@@ -7,6 +7,9 @@ import { firestore } from "../../firebase/firebase.config"
 import { eventoConverter } from "../../models/Evento"
 import ActionButtonsCell from "./ActionButtonsCell"
 import NoRowsPlaceholder from "./NoRowsPlaceholder"
+import { Card, Container } from "@mui/material"
+import StyledCard from "../../components/StyledCard"
+import StyledContainer from "../../components/StyledContainer"
 
 const eventosRef = collection(firestore, "eventos").withConverter(eventoConverter)
 
@@ -29,22 +32,25 @@ function EventList() {
 	]
 
 	return (
-		<Paper sx={{ maxWidth: { xs: 320, sm: 936 }, minHeight: 160, margin: 'auto', overflowX: "hidden" }}>
-			<SearchToolbar />
+		<StyledContainer>
 
-			<DataGrid
-				loading={loading}
-				rows={rows}
-				columns={columns}
-				columnVisibilityModel={{
-					id: false
-				}}
-				slots={{ noRowsOverlay: NoRowsPlaceholder }}
-				sx={{ border: "none" }}
-				autoHeight
-				hideFooter
-			/>
-		</Paper>
+			<StyledCard>
+				<SearchToolbar />
+
+				<DataGrid
+					loading={loading}
+					rows={rows}
+					columns={columns}
+					columnVisibilityModel={{
+						id: false
+					}}
+					slots={{ noRowsOverlay: NoRowsPlaceholder }}
+					sx={{ border: "none" }}
+					autoHeight
+					hideFooter
+				/>
+			</StyledCard>
+		</StyledContainer >
 	)
 }
 

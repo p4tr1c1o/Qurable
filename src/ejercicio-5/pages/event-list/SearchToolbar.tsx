@@ -35,13 +35,8 @@ function SearchToolbar() {
 					</Grid>
 					<Grid item>
 						<Button color="secondary" variant="contained" sx={{ mr: 1, marginY: 1.5 }} onClick={handleAddEventClick}>
-							Add event
+							+ Nuevo Evento
 						</Button>
-						{/* <Tooltip title="Reload">
-								<IconButton>
-									<RefreshIcon color="inherit" sx={{ display: 'block' }} />
-								</IconButton>
-							</Tooltip> */}
 					</Grid>
 				</Grid>
 			</Toolbar>

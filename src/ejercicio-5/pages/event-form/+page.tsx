@@ -1,10 +1,12 @@
-import { Button, Card, CardActions, CardContent, CardHeader, Stack, TextField, Typography, useTheme } from "@mui/material"
+import { Button, CardActions, CardContent, CardHeader, Stack, TextField, Typography, useTheme } from "@mui/material"
 import { useFormik } from "formik"
 import * as yup from "yup"
 import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker"
 import { useNavigate } from "react-router-dom"
 import EventsService from "../../services/EventsService"
 import Evento from "../../models/Evento"
+import StyledCard from "../../components/StyledCard"
+import StyledContainer from "../../components/StyledContainer"
 
 function EventForm() {
 	const navigate = useNavigate()
@@ -44,17 +46,9 @@ function EventForm() {
 	}
 
 	return (
-		<>
-			<Card sx={{ maxWidth: 700, margin: "auto" }}>
-				<CardHeader
-					title="Nuevo Evento"
-					sx={{
-						backgroundColor: theme.palette.secondary.main,
-						color: "white",
-						height: 100,
-						alignItems: "flex-end"
-					}}
-				/>
+		<StyledContainer>
+			<StyledCard>
+				<CardHeader title="Nuevo Evento" />
 				<CardContent>
 					<form onSubmit={formik.handleSubmit}>
 
@@ -112,8 +106,8 @@ function EventForm() {
 						Guardar
 					</Button>
 				</CardActions>
-			</Card >
-		</>
+			</StyledCard >
+		</StyledContainer>
 	)
 }
 

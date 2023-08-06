@@ -27,7 +27,7 @@ export default function AccountMenu({ anchorEl, open, handleClose }: AccountMenu
 
 	async function handleCerrarSesion() {
 		await AuthService.cerrarSesion()
-		navigate("/signin-side")
+		navigate(0)
 	}
 
 

@@ -1,6 +1,8 @@
-import { Button, Card, CardActions, CardContent, CardHeader } from "@mui/material"
+import { Button, Card, CardActions, CardContent, CardHeader, Container } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import theme from "../../styles/Theme"
+import StyledCard from "../../components/StyledCard"
+import StyledContainer from "../../components/StyledContainer"
 function EventDetail() {
 	const navigate = useNavigate()
 	// const url = ""
@@ -16,23 +18,25 @@ function EventDetail() {
 
 
 	return (
-		<Card sx={{ maxWidth: 700, margin: "auto" }}>
-			<CardHeader
-				title="Evento"
-				sx={{
-					backgroundColor: theme.palette.secondary.main,
-					color: "white",
-					height: 100,
-					alignItems: "flex-end"
-				}}
-			/>
+		<StyledContainer >
+			<StyledCard >
+				<CardHeader
+					title="Evento"
+					sx={{
+						backgroundColor: theme.palette.secondary.main,
+						color: "white",
+						height: 100,
+						alignItems: "flex-end"
+					}}
+				/>
 
-			<CardContent sx={{ height: 200 }}>contenido</CardContent>
-			<CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
-				<Button color="secondary" onClick={handleVolverClick}>Volver</Button>
-				<Button color="secondary" variant="contained" onClick={handleAsistireClick}>Asistire!</Button>
-			</CardActions>
-		</Card >
+				<CardContent sx={{ height: 200 }}>contenido</CardContent>
+				<CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
+					<Button color="secondary" onClick={handleVolverClick}>Volver</Button>
+					<Button color="secondary" variant="contained" onClick={handleAsistireClick}>Asistire!</Button>
+				</CardActions>
+			</StyledCard >
+		</StyledContainer>
 	)
 }
 
