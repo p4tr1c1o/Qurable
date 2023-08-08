@@ -10,7 +10,7 @@ export const AuthContext = createContext<User | null>(null)
 
 function AuthProvider({ children }) {
 	const [usuario, setUsuario] = useState<User | null>(null)
-	const [currentUser, authLoading, authError] = useAuthState(auth)
+	const [currentUser, authLoading] = useAuthState(auth)
 
 	useEffect(() => {
 		onAuthStateChanged(auth, async (currentUser) => {

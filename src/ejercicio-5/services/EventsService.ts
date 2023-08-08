@@ -1,4 +1,3 @@
-import { User } from "firebase/auth"
 import Evento from "../models/Evento"
 
 async function postEvento(evento: Evento) {

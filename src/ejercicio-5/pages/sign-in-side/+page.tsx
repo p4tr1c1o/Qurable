@@ -23,7 +23,7 @@ export default function SignInSide() {
 	const navigate = useNavigate()
 	const location = useLocation()
 	const from = location.state?.from?.pathname || "/"
-	const [currentUser, authLoading, authError] = useAuthState(auth)
+	const [currentUser, authLoading] = useAuthState(auth)
 
 	const validacion = yup.object().shape({
 		email: yup
@@ -50,6 +50,7 @@ export default function SignInSide() {
 		if (currentUser) {
 			navigate(from, { replace: true })
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentUser, authLoading])
 
 

@@ -3,12 +3,11 @@ import { useContext } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Avatar from '@mui/material/Avatar'
 import IconButton from '@mui/material/IconButton'
-import NotificationsIcon from '@mui/icons-material/Notifications'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { AuthContext } from "../../context/AuthContext"
 import AccountMenu from "./AccountMenu"
-import { Box, Tooltip } from "@mui/material"
+import { Box } from "@mui/material"
 
 
 export default function Header() {

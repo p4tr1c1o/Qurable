@@ -13,14 +13,14 @@ import { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useLocation, useNavigate } from "react-router-dom"
 import AuthService, { auth } from "../../services/AuthService"
-import { ReactComponent as Calendar } from "../../assets/calendar.svg"
+// import { ReactComponent as Calendar } from "../../assets/calendar.svg"
 
 
 export default function SignUp() {
 	const location = useLocation()
 	const from = location.state?.from?.pathname || "/"
 	const [mensaje, setMensaje] = useState("")
-	const [currentUser, authLoading, authError] = useAuthState(auth)
+	const [currentUser, authLoading] = useAuthState(auth)
 	const navigate = useNavigate()
 
 	const validacion = yup.object().shape({
