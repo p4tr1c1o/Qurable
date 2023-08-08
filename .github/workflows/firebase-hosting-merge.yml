@@ -18,5 +18,3 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_QURABLE_CHALLENGE }}"
           channelId: live
           projectId: qurable-challenge
-        env:
-          FIREBASE_CLI_EXPERIMENTS: webframeworks
