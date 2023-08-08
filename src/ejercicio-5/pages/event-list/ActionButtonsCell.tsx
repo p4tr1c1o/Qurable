@@ -1,18 +1,13 @@
 import { Button } from "@mui/material"
-import { GridRenderCellParams, GridRowModel } from "@mui/x-data-grid"
+import { GridRenderCellParams } from "@mui/x-data-grid"
 import { useNavigate } from "react-router-dom"
-import Evento from "../../models/Evento"
-
 
 function ActionButtonsCell(params: GridRenderCellParams) {
 	const navigate = useNavigate()
+	if (!params.id) throw new Error("Missing param ID")
 
-	function handleEditarClick(params: GridRowModel<Evento>) {
-		// setRow(valuesProductos?.find(x => x.docId == row?.id))
-		// // setRow(new Producto())
-		// setOpenDialog(true)
-
-		navigate(`/events/${params?.docId}`)
+	function handleEditarClick(params: GridRenderCellParams) {
+		navigate("events/detail", { state: { id: params.id } })
 	}
 
 	return (

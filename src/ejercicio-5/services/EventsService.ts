@@ -1,8 +1,9 @@
+import { User } from "firebase/auth"
 import Evento from "../models/Evento"
 
 async function postEvento(evento: Evento) {
 	try {
-		const response = await fetch("http://127.0.0.1:5001/qurable-challenge/us-central1/api/events",
+		const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/events`,
 			{
 				method: "POST",
 				headers: { 'Content-Type': 'application/json' },
@@ -14,8 +15,23 @@ async function postEvento(evento: Evento) {
 	}
 }
 
+async function postAsistire(docId: string, uid: string) {
+	try {
+		const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/events/asistire`,
+			{
+				method: "POST",
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ docId, uid }),
+			})
+		return response
+	} catch (error) {
+		console.log(error)
+	}
+}
+
 const EventsService = {
-	postEvento
+	postEvento,
+	postAsistire
 }
 
 export default EventsService

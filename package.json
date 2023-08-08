@@ -8,12 +8,14 @@
 		"test": "vitest --",
 		"build": "tsc && vite build",
 		"lint": "eslint . --fix",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
 		"@mui/icons-material": "^5.14.3",
+		"@mui/lab": "^5.0.0-alpha.139",
 		"@mui/material": "^5.14.3",
 		"@mui/x-data-grid": "^6.10.2",
 		"@mui/x-date-pickers": "^6.10.2",
@@ -39,7 +41,8 @@
 		"eslint-plugin-react-refresh": "^0.4.3",
 		"typescript": "^5.0.2",
 		"vite": "^4.4.5",
-		"vitest": "^0.33.0"
+		"vitest": "^0.33.0",
+		"husky": "^8.0.0"
 	},
 	"keywords": [
 		"qurable",

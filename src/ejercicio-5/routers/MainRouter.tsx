@@ -14,7 +14,7 @@ const router = createBrowserRouter([
 	{
 		path: "/", Component: Layout, children: [
 			{ index: true, Component: () => <EventList /> },
-			{ path: "events/:id", Component: () => <EventDetail /> },
+			{ path: "events/detail", Component: () => <EventDetail /> },
 			{
 				Component: () => <RequireAuth />, children: [
 					{ path: "events/form", Component: () => <EventForm /> },

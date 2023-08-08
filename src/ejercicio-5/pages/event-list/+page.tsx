@@ -1,4 +1,3 @@
-import Paper from '@mui/material/Paper'
 import SearchToolbar from "./SearchToolbar"
 import { DataGrid, GridColDef, GridRowModel } from "@mui/x-data-grid"
 import { useCollectionData } from 'react-firebase-hooks/firestore'
@@ -7,7 +6,6 @@ import { firestore } from "../../firebase/firebase.config"
 import { eventoConverter } from "../../models/Evento"
 import ActionButtonsCell from "./ActionButtonsCell"
 import NoRowsPlaceholder from "./NoRowsPlaceholder"
-import { Card, Container } from "@mui/material"
 import StyledCard from "../../components/StyledCard"
 import StyledContainer from "../../components/StyledContainer"
 
@@ -28,7 +26,7 @@ function EventList() {
 		{ field: "nombre", headerName: "Nombre", width: 140 },
 		{ field: "descripcion", headerName: "Descripcion", flex: 1, minWidth: 160 },
 		{ field: "fecha", headerName: "Fecha", width: 130 },
-		{ field: "actions", headerName: " ", width: 100, renderCell: (params) => ActionButtonsCell(params) },
+		{ field: "actions", headerName: " ", width: 100, renderCell: ActionButtonsCell },
 	]
 
 	return (

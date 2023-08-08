@@ -1,15 +1,21 @@
 import { DocumentData, QueryDocumentSnapshot, SnapshotOptions, Timestamp } from "firebase/firestore"
 
+
+
 export default class Evento {
 	docId?: string
 	nombre: string
 	descripcion?: string
 	fecha: Date
+	asistentes?: string[]
 
 	public constructor(init?: Partial<Evento>) {
 		Object.assign(this, init)
+
+		if (init?.fecha) this.fecha = new Date(init.fecha)
 	}
 }
+
 
 export const eventoConverter = {
 	toFirestore(evento: Evento): DocumentData {
