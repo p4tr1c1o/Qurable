@@ -1,27 +1,60 @@
-# React + TypeScript + Vite
+# Challenge Quora
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tabla de contenidos
 
-Currently, two official plugins are available:
+- [Tecnologias](#tecnologias)
+- [Features](#features)
+- [Como se corre](#como-se-corre)
+- [Como se despliega](#como-se-despliega)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias
 
-## Expanding the ESLint configuration
+Este proyecto fue creado usando [Vite](https://vitejs.dev/)
+UI desarrollada con [MaterialUI](https://mui.com/material-ui/)
+Gestion de formularios con [Formik](https://formik.org/)
+Testing con [Vitest](https://vitest.dev/)
+Automatizaciones con [Husky](https://typicode.github.io/husky/)
+CI/CD con [Github Actions](https://github.com/p4tr1c1o/Qurable/actions)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
+  
+  * Manejo de tipos con Typescript
+  * Linting y formateo de codigo automatico antes de cada coommit
 
-- Configure the top-level `parserOptions` property like this:
+## Como se corre
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+Primero instalar todas las dependencias con:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+	yarn install
+
+Creamos el archivo .env.local con los valores enviados en el correo
+
+Luego levantar el entorno de desarrollo con:
+
+	yarn run dev
+
+Se puede ejecutar los tests de cada ejercicio con:
+
+	yarn run test
+
+## Como se despliega
+
+### Despliegue automatico
+
+Este proyecto se encuentra integrado con Firebase a traves de [Github Actions](https://github.com/p4tr1c1o/Qurable/actions), por lo cual luego de cada push se ejecuta un Action de build y despliegue al hosting.
+
+### Despliegue manual
+
+Se puede ejecutar este proceso manualmente
+
+Transpilando el codigo con:
+
+	yarn run build 
+
+Iniciando sesion en Firebase con:
+
+	firebase login
+
+Luego desplegando el codigo con:
+
+	firebase deploy
