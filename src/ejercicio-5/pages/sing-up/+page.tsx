@@ -1,4 +1,3 @@
-import React from "react"
 import * as yup from "yup"
 import Button from "@mui/material/Button"
 import CssBaseline from "@mui/material/CssBaseline"
@@ -13,7 +12,7 @@ import { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useLocation, useNavigate } from "react-router-dom"
 import AuthService, { auth } from "../../services/AuthService"
-// import { ReactComponent as Calendar } from "../../assets/calendar.svg"
+import { ReactComponent as Calendar } from "../../assets/calendar.svg"
 
 
 export default function SignUp() {
@@ -49,6 +48,7 @@ export default function SignUp() {
 		if (currentUser) {
 			navigate(from, { replace: true })
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentUser, authLoading])
 
 	async function handleSubmit() {
