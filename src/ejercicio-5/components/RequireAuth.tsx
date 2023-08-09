@@ -15,6 +15,7 @@ function RequireAuth({ children }: RequireAuthProps) {
 		</>
 	}
 	return <Navigate to="/signin-side" state={{ from: location }} replace />
+
 }
 
 export default RequireAuth

@@ -26,12 +26,12 @@ export default function Header() {
 	return (
 		<AppBar position="sticky">
 			<Toolbar>
-				<Typography variant="h6" >
-					Qurable
-				</Typography>
-				<Typography variant="h6" sx={{ flexGrow: 1 }}>
+
+				<img src="/logo.png" alt="image" />
+				<Typography variant="h6" sx={{ flexGrow: 1, marginInline: 2 }}>
 					Gestion de Eventos
 				</Typography>
+
 				<Box>
 					<IconButton color="inherit" sx={{ padding: 0.5 }} onClick={handleAccountMenuClick} >
 						<Avatar>{usuarioActual?.email?.charAt(0).toUpperCase()}</Avatar>

@@ -1,12 +1,13 @@
 import { useState } from "react"
 import * as yup from "yup"
 import { ThemeProvider } from "@emotion/react"
-import { Container, CssBaseline, Box, Avatar, Typography, Grid, TextField, Button } from "@mui/material"
+import { Container, CssBaseline, Box, Typography, Grid, TextField, Button } from "@mui/material"
 import Link from "@mui/material/Link"
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import { useFormik } from "formik"
 import theme from "../../styles/Theme"
 import AuthService from "../../services/AuthService"
+import { ReactComponent as Calendar } from "../../assets/calendar.svg"
+
 
 export default function ForgotPassword() {
 	const [mensaje, setMensaje] = useState("")
@@ -44,9 +45,9 @@ export default function ForgotPassword() {
 						alignItems: "center",
 					}}
 				>
-					<Avatar sx={{ margin: 1, bgcolor: "secondary.main" }}>
-						<LockOutlinedIcon />
-					</Avatar>
+					<Box height={120} width={120} margin={1}>
+						<Calendar />
+					</Box>
 					<Typography component="h1" variant="h5">
 						Olvido su password
 					</Typography>

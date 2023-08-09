@@ -1,5 +1,4 @@
 import * as yup from "yup"
-import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import CssBaseline from "@mui/material/CssBaseline"
 import TextField from "@mui/material/TextField"
@@ -9,7 +8,6 @@ import Link from "@mui/material/Link"
 import Paper from "@mui/material/Paper"
 import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
-import FastfoodIcon from "@mui/icons-material/Fastfood"
 import Typography from "@mui/material/Typography"
 import { useFormik } from "formik"
 
@@ -18,11 +16,13 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import { useEffect } from "react"
 import CircularProgress from "@mui/material/CircularProgress"
 import AuthService, { auth } from "../../services/AuthService"
+import { ReactComponent as Calendar } from "../../assets/calendar.svg"
 
 export default function SignInSide() {
 	const navigate = useNavigate()
 	const location = useLocation()
 	const from = location.state?.from?.pathname || "/"
+
 	const [currentUser, authLoading] = useAuthState(auth)
 
 	const validacion = yup.object().shape({
@@ -93,9 +93,9 @@ export default function SignInSide() {
 									alignItems: "center",
 								}}
 							>
-								<Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-									<FastfoodIcon />
-								</Avatar>
+								<Box height={120} width={120} margin={1}>
+									<Calendar />
+								</Box>
 								<Typography component="h1" variant="h5">
 									Acceder
 								</Typography>

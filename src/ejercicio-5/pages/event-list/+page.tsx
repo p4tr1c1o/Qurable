@@ -1,6 +1,5 @@
 import SearchToolbar from "./SearchToolbar"
 import { DataGrid, GridColDef, GridRowModel } from "@mui/x-data-grid"
-import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { collection } from "firebase/firestore"
 import { firestore } from "../../firebase/firebase.config"
 import { eventoConverter } from "../../models/Evento"
@@ -8,13 +7,14 @@ import ActionButtonsCell from "./ActionButtonsCell"
 import NoRowsPlaceholder from "./NoRowsPlaceholder"
 import StyledCard from "../../components/StyledCard"
 import StyledContainer from "../../components/StyledContainer"
+import { useStream } from "../../hooks/useStream"
 
 const eventosRef = collection(firestore, "eventos").withConverter(eventoConverter)
 
 function EventList() {
-	const [values, loading] = useCollectionData(eventosRef)
+	const { data, loading } = useStream(eventosRef)
 
-	const rows = values?.map(evento => ({
+	const rows = data?.map(evento => ({
 		id: evento?.docId,
 		nombre: evento?.nombre,
 		descripcion: evento?.descripcion,

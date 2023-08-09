@@ -15,8 +15,6 @@ function AuthProvider({ children }) {
 	useEffect(() => {
 		onAuthStateChanged(auth, async (currentUser) => {
 			if (currentUser) {
-				console.log("usuario logueado")
-
 				return setUsuario(currentUser)
 			}
 			return null
