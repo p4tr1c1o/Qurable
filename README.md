@@ -33,7 +33,7 @@ Hostig con [Firebase](https://console.firebase.google.com/)
 ## Features
   
   * Manejo de tipos con Typescript
-  * Linting y formateo de codigo automatico antes de cada coommit
+  * Linting y formateo de codigo automatico antes de cada commit
 
 ## Como se corre
 

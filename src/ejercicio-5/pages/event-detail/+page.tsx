@@ -5,10 +5,11 @@ import StyledContainer from "../../components/StyledContainer"
 import { useFetch } from "../../hooks/useFetch"
 import Evento from "../../models/Evento"
 import LoadingButton from '@mui/lab/LoadingButton'
-import { User } from "firebase/auth"
+import { User, signInAnonymously } from "firebase/auth"
 import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../context/AuthContext"
 import EventsService from "../../services/EventsService"
+import { auth } from "../../services/AuthService"
 
 function EventDetail() {
 	const navigate = useNavigate()
@@ -38,20 +39,21 @@ function EventDetail() {
 	}
 
 	async function handleAsistireClick() {
-		if (usuarioActual && data?.docId) {
+		let uid = usuarioActual?.uid
+		if (!usuarioActual) {
+			const result = await signInAnonymously(auth)
+			uid = result.user.uid
+		}
+
+		if (uid && data?.docId) {
 			setPosting(true)
-			const result = await EventsService.postAsistire(data?.docId, usuarioActual.uid)
+			const result = await EventsService.postAsistire(data?.docId, uid)
 			setPosting(false)
 
 			if (result?.ok) setAsistire(true)
 			return
-		} else {
-			navigate("/signin-side")
 		}
-
-		return
 	}
-
 
 	return (
 		<StyledContainer>

@@ -17,11 +17,15 @@ export default function AccountMenu({ anchorEl, open, handleClose }: AccountMenu
 	const navigate = useNavigate()
 	const usuarioActual = useContext<User | null>(AuthContext)
 
-	function handleIngresar() {
+	async function handleIngresar() {
+		if (usuarioActual?.isAnonymous) await AuthService.cerrarSesion()
+
 		navigate("/signin-side")
 	}
 
-	function handleCrearCuenta() {
+	async function handleCrearCuenta() {
+		if (usuarioActual?.isAnonymous) await AuthService.cerrarSesion()
+
 		navigate("/signup")
 	}
 
@@ -48,9 +52,9 @@ export default function AccountMenu({ anchorEl, open, handleClose }: AccountMenu
 				horizontal: "left",
 			}}
 		>
-			<MenuItem onClick={handleIngresar} disabled={Boolean(usuarioActual)}>Ingresar</MenuItem>
-			<MenuItem onClick={handleCrearCuenta} disabled={Boolean(usuarioActual)}>Crear cuenta</MenuItem>
-			<MenuItem onClick={handleCerrarSesion} disabled={Boolean(!usuarioActual)}> Cerrar sesion</MenuItem >
+			<MenuItem onClick={handleIngresar} disabled={Boolean(usuarioActual) && !usuarioActual?.isAnonymous}>Ingresar</MenuItem>
+			<MenuItem onClick={handleCrearCuenta} disabled={Boolean(usuarioActual) && !usuarioActual?.isAnonymous}>Crear cuenta</MenuItem>
+			<MenuItem onClick={handleCerrarSesion} disabled={Boolean(!usuarioActual) || usuarioActual?.isAnonymous}> Cerrar sesion</MenuItem >
 		</Menu >
 	)
 }
